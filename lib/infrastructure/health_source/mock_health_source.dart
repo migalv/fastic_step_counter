@@ -26,7 +26,7 @@ class MockHealthSource implements IHealthSource {
   Stream<Either<HealthSourceFailure, int>> trackUserSteps() {
     final random = Random();
     const min = 1;
-    const max = 3;
+    const max = 10;
 
     return Stream<Map<String, dynamic>>.periodic(
       const Duration(seconds: 1),
