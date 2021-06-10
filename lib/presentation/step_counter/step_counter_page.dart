@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:fastic_step_counter/presentation/step_counter/themes/app_colors.dart';
 import 'package:fastic_step_counter/presentation/step_counter/widgets/circle_progress.dart';
 import 'package:fastic_step_counter/presentation/step_counter/widgets/statistics.dart';
 import 'package:flutter/material.dart';
@@ -11,17 +12,26 @@ class StepCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.darkBlue,
+          ),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.notifications_off_outlined),
+            icon: const Icon(
+              Icons.notifications_off_outlined,
+              color: AppColors.darkBlue,
+            ),
           ),
         ],
+        elevation: 0.0,
+        backgroundColor: Colors.white,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +54,8 @@ class StepCounterPage extends StatelessWidget {
           "Stepcounter",
           style: TextStyle(
             fontSize: 32.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
+            color: AppColors.darkBlue,
           ),
         ),
       );
@@ -56,14 +67,20 @@ class StepCounterPage extends StatelessWidget {
             Statistics(
               icon: RotatedBox(
                 quarterTurns: -1,
-                child: Icon(FontAwesomeIcons.shoePrints),
+                child: Icon(
+                  FontAwesomeIcons.shoePrints,
+                  color: AppColors.orange,
+                ),
               ),
               statName: "Steps",
-              stats: "1557/30000",
+              stats: "1557 / 30000",
             ),
             Expanded(child: SizedBox()),
             Statistics(
-              icon: Icon(FontAwesomeIcons.fire),
+              icon: Icon(
+                FontAwesomeIcons.fire,
+                color: AppColors.orange,
+              ),
               statName: "Calories",
               stats: "340",
             ),
@@ -74,7 +91,7 @@ class StepCounterPage extends StatelessWidget {
   Widget _buildDailyGoalButton() => Center(
         child: TextButton.icon(
           style: TextButton.styleFrom(
-            primary: const Color.fromRGBO(166, 172, 180, 1),
+            primary: AppColors.gray,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24.0),
             ),
@@ -82,10 +99,10 @@ class StepCounterPage extends StatelessWidget {
               vertical: 8.0,
               horizontal: 20.0,
             ),
-            backgroundColor: const Color.fromRGBO(166, 172, 180, 0.2),
+            backgroundColor: AppColors.gray20,
           ),
           onPressed: () {},
-          icon: const Icon(Icons.edit),
+          icon: const Icon(Icons.edit_outlined),
           label: const Text("Daily Goal"),
         ),
       );
@@ -103,8 +120,9 @@ class StepCounterPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.0),
               child: const LinearProgressIndicator(
                 value: 0.49,
-                backgroundColor: Color.fromRGBO(166, 172, 180, 0.3),
+                backgroundColor: AppColors.gray30,
                 minHeight: 8.0,
+                color: AppColors.orange,
               ),
             ),
           ],

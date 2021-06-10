@@ -1,3 +1,4 @@
+import 'package:fastic_step_counter/presentation/step_counter/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class Statistics extends StatelessWidget {
@@ -25,6 +26,7 @@ class Statistics extends StatelessWidget {
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16.0,
+            color: AppColors.darkBlue,
           ),
         ),
         Text(statName),

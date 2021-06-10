@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:fastic_step_counter/presentation/step_counter/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CircleProgress extends StatelessWidget {
@@ -22,7 +23,11 @@ class CircleProgress extends StatelessWidget {
           child: Center(
             child: Text(
               "${value.toStringAsFixed(0)}%",
-              style: const TextStyle(fontSize: 64.0),
+              style: const TextStyle(
+                fontSize: 64.0,
+                fontWeight: FontWeight.w800,
+                color: AppColors.darkBlue,
+              ),
             ),
           ),
         ),
@@ -44,8 +49,8 @@ class CircleProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     const int maximumValue = 100;
-    const Color strokeColor = Color.fromRGBO(247, 165, 108, 1);
-    const Color backgroundColor = Color.fromRGBO(166, 172, 180, 0.3);
+    const Color strokeColor = AppColors.orange;
+    const Color backgroundColor = AppColors.gray30;
     const double strokeWidth = 12.0;
 
     final Paint outerCircle = Paint()
