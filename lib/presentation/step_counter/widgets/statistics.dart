@@ -1,6 +1,7 @@
 import 'package:fastic_step_counter/presentation/step_counter/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
+// I created this widget because it is used a couple of times in the main page
 class Statistics extends StatelessWidget {
   final Widget icon;
   final String stats;

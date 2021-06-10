@@ -26,6 +26,7 @@ class MockHealthSource implements IHealthSource {
   Stream<Either<HealthSourceFailure, int>> trackUserSteps() {
     final random = Random();
     const min = 1;
+    // To make it faster I made it 10
     const max = 10;
 
     return Stream<Map<String, dynamic>>.periodic(
@@ -40,6 +41,7 @@ class MockHealthSource implements IHealthSource {
           // For now we ignore them since we do not need them
           "time": DateTime.now().toIso8601String(),
           "heart_beat": 86,
+          "calories": 340,
           "step_counter": currentStepCounter,
         };
       },

@@ -14,4 +14,8 @@ abstract class IHealthSource {
   /// We use functional programming to return Failures instead of throwing them
   /// this allows us to controll failures in a cleaner way.
   Stream<Either<HealthSourceFailure, int>> trackUserSteps();
+
+  // I could also create another method like this to track the calories
+  // Stream<Either<HealthSourceFailure, int>> trackUserCalories();
+
 }
