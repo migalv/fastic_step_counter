@@ -4,6 +4,9 @@ import 'package:fastic_step_counter/domain/health_source/health_source_dto.dart'
 import 'package:fastic_step_counter/domain/health_source/health_source_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:fastic_step_counter/domain/health_source/i_health_source.dart';
+import 'package:injectable/injectable.dart';
+
+@LazySingleton(as: IHealthSource)
 
 /// A mock implementation of the Health Source
 class MockHealthSource implements IHealthSource {

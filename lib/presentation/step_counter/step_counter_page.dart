@@ -1,9 +1,12 @@
 import 'dart:math' as math;
 
+import 'package:fastic_step_counter/application/step_watcher/step_watcher_bloc.dart';
+import 'package:fastic_step_counter/injection.dart';
 import 'package:fastic_step_counter/presentation/step_counter/themes/app_colors.dart';
 import 'package:fastic_step_counter/presentation/step_counter/widgets/circle_progress.dart';
 import 'package:fastic_step_counter/presentation/step_counter/widgets/statistics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class StepCounterPage extends StatelessWidget {
@@ -33,17 +36,39 @@ class StepCounterPage extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.white,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildTitle(),
-          const SizedBox(height: 56.0),
-          const CircleProgress(value: 49.0),
-          _buildStatsRow(),
-          _buildDailyGoalButton(),
-          const SizedBox(height: 32.0),
-          _buildLinearProgressBar(),
-        ],
+      body: BlocProvider(
+        create: (context) => getIt<StepWatcherBloc>()
+          ..add(const StepWatcherEvent.startedWatching()),
+        child: BlocConsumer<StepWatcherBloc, StepWatcherState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            int steps = 0;
+
+            state.when(
+              initial: () {},
+              watchingSuccess: (receivedSteps) {
+                steps = receivedSteps;
+              },
+              watchingFailure: (failure) {},
+            );
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildTitle(),
+                const SizedBox(height: 56.0),
+                const CircleProgress(value: 49.0),
+                _buildStatsRow(
+                  steps: steps,
+                ),
+                _buildDailyGoalButton(),
+                const SizedBox(height: 32.0),
+                _buildLinearProgressBar(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -60,12 +85,15 @@ class StepCounterPage extends StatelessWidget {
         ),
       );
 
-  Widget _buildStatsRow() => Container(
+  Widget _buildStatsRow({
+    int steps = 0,
+  }) =>
+      Container(
         margin: const EdgeInsets.symmetric(horizontal: 40.0),
         child: Row(
-          children: const [
+          children: [
             Statistics(
-              icon: RotatedBox(
+              icon: const RotatedBox(
                 quarterTurns: -1,
                 child: Icon(
                   FontAwesomeIcons.shoePrints,
@@ -73,10 +101,10 @@ class StepCounterPage extends StatelessWidget {
                 ),
               ),
               statName: "Steps",
-              stats: "1557 / 30000",
+              stats: "$steps / 30000",
             ),
-            Expanded(child: SizedBox()),
-            Statistics(
+            const Expanded(child: SizedBox()),
+            const Statistics(
               icon: Icon(
                 FontAwesomeIcons.fire,
                 color: AppColors.orange,

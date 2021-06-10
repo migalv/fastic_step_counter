@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:fastic_step_counter/domain/health_source/i_health_source.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'step_watcher_event.dart';
 part 'step_watcher_state.dart';
@@ -13,6 +14,7 @@ part 'step_watcher_bloc.freezed.dart';
 ///
 /// This depends on a IHealthSource. So in the future we can change the Health Source
 /// and this will not be affected
+@injectable
 class StepWatcherBloc extends Bloc<StepWatcherEvent, StepWatcherState> {
   final IHealthSource _healthSource;
 
