@@ -11,4 +11,8 @@ abstract class HealthSourceFailure with _$HealthSourceFailure {
   /// Catching this type of errors helps determining the source of the error
   /// much more effectively.
   const factory HealthSourceFailure.unexpectedError() = _UnexpectedError;
+
+  /// This failure represents the case when for some reason the Health Source
+  /// cannot access the step counter of the user.
+  const factory HealthSourceFailure.stepsNotFound() = _StepsNotFound;
 }
