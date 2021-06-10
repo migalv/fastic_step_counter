@@ -6,6 +6,5 @@ import 'package:injectable/injectable.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection(Environment.dev);
-
   runApp(MyApp());
 }

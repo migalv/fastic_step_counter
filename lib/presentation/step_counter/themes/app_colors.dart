@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+/// A class that contains all the colors of the app
+///
+/// This is perfect to locate all the colors in one place
 class AppColors {
   static const orange = Color.fromRGBO(247, 165, 108, 1);
   static const fadeGray = Color.fromRGBO(237, 241, 243, 1);

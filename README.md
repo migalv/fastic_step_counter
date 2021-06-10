@@ -1,16 +1,11 @@
-# fastic_step_counter
+# Fastic Step Counter
+Simple step counter. It uses a Mock Health Source to simulate steps every second.
+This app is only supported for Android.
 
-A new Flutter project.
+## Flutter Vesion
+This project uses Flutter version 2.2.1 as of date 10/06/2021
+Please make sure to use this Flutter version. Or update the dependencies when upgrading Flutter Version
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Code Generation
+This project uses code generation. Before building or running the app make sure to run this command:
+`$ flutter pub run build_runner build`
