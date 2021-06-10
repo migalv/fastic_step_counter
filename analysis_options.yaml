@@ -6,6 +6,7 @@ analyzer:
     - "**/*.freezed.dart"
     - "**/*.config.dart"
     - "**/*.mocks.dart"
+    - "**/app_icons.dart"
   errors:
     missing_required_param: error
     missing_return: error
